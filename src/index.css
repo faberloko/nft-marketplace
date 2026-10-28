@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { background: #140D0A; color-scheme: dark; }
+  body { @apply font-sans text-ink antialiased; overflow-x: hidden; letter-spacing: 0.02em; }
+  :focus-visible { outline: 2px solid #E89B55; outline-offset: 2px; }
+  h1, h2, h3 { @apply font-bold; text-wrap: balance; }
+  ::placeholder { color: #B39463; opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
+/* Largura útil do Figma: 1200 px (margens de 120 px em 1440). */
+.container-page { @apply mx-auto w-full max-w-[1248px] px-6; }
+.sr-only-focusable:not(:focus) { @apply sr-only; }
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+/* Slider duplo de preço (Figma): trilho no container, só os pinos recebem eventos. */
+.range-thumb::-webkit-slider-thumb { -webkit-appearance: none; pointer-events: auto; height: 16px; width: 16px; border-radius: 9999px; background: #D28A4C; border: 2px solid #140D0A; cursor: pointer; }
+.range-thumb::-moz-range-thumb { pointer-events: auto; height: 16px; width: 16px; border-radius: 9999px; background: #D28A4C; border: 2px solid #140D0A; cursor: pointer; }
+.range-thumb:focus-visible::-webkit-slider-thumb { outline: 2px solid #E89B55; outline-offset: 2px; }
+/* No mobile, a barra inferior fixa não pode cobrir campos e botões focados ou rolados até a vista. */
+@media (max-width: 767px) { html { scroll-padding-bottom: 112px; scroll-padding-top: 16px; } }

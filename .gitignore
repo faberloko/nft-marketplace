@@ -1,0 +1,16 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+
+.env
+.env.*
+!.env.example
+
+*.zip
+tsconfig.tsbuildinfo
+
+design/compare/
+design/crop-*.png
+
+lighthouse/reports/
